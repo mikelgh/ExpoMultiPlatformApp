@@ -46,9 +46,19 @@ yarn install
 
 #### Q: 端口 8081 被占用？
 **A:** 
-- **自动处理**: `start-electron.bat` 脚本会自动检测并复用现有服务
-- **手动解决**: 关闭其他 Expo/React Native 项目
-- **更改端口**: 修改 `electron.js` 中的端口号
+- **智能复用**: 所有启动脚本会自动检测并复用现有的 8081 端口服务
+- **清理端口**: 运行 `kill-port.bat` 清理占用端口的进程
+- **详细说明**: 查看 [端口管理指南](./PORT_MANAGEMENT.md)
+
+**推荐工作流程**：
+```bash
+# 1. 启动 Web 服务器
+npm run web
+
+# 2. 在其他终端运行 Electron/Android（会自动复用）
+npm run electron
+npm run android
+```
 
 #### Q: 如何配置 Android 开发环境？
 **A:** 
@@ -199,9 +209,19 @@ yarn install
 
 #### Q: Port 8081 already in use?
 **A:** 
-- **Auto-handled**: `start-electron.bat` auto-detects and reuses existing service
-- **Manual**: Close other Expo/React Native projects
-- **Change port**: Modify port number in `electron.js`
+- **Smart reuse**: All startup scripts auto-detect and reuse existing port 8081 service
+- **Clean port**: Run `kill-port.bat` to kill the process using the port
+- **Details**: See [Port Management Guide](./PORT_MANAGEMENT.md)
+
+**Recommended workflow**:
+```bash
+# 1. Start Web server
+npm run web
+
+# 2. Run Electron/Android in other terminals (auto-reuse)
+npm run electron
+npm run android
+```
 
 #### Q: How to setup Android development?
 **A:** 

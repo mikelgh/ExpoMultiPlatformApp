@@ -35,8 +35,8 @@ export default function App() {
         {/* 顶部品牌区块 */}
         <View style={styles.header}>
           <Text style={styles.emoji}>🚀</Text>
-          <Text style={styles.title}>MultiPlatformApp</Text>
-          <Text style={styles.subtitle}>跨平台应用模板 1.12</Text>
+          <Text style={styles.title}>MultiPlatformApp 1.11</Text>
+          <Text style={styles.subtitle}>跨平台应用模板 1.10</Text>
         </View>
 
         {/* 平台信息卡片 */}

@@ -2,15 +2,15 @@ const { spawn } = require('child_process');
 const http = require('http');
 const path = require('path');
 
-// 检查端口是否可用
+// Check if port is available
 function checkPort(port) {
   return new Promise((resolve) => {
     const req = http.get(`http://localhost:${port}`, (res) => {
-      resolve(true); // 端口已被占用且服务可访问
+      resolve(true); // Port is in use and service is accessible
     });
     
     req.on('error', () => {
-      resolve(false); // 端口未被占用或服务不可访问
+      resolve(false); // Port is not in use or service is inaccessible
     });
     
     req.setTimeout(2000, () => {
@@ -20,23 +20,21 @@ function checkPort(port) {
   });
 }
 
-// 等待服务启动
+// Wait for server to start
 async function waitForServer(port, maxAttempts = 60) {
-  console.log(`等待服务在端口 ${port} 启动...`);
+  console.log(`Waiting for server on port ${port}...`);
   
   for (let i = 0; i < maxAttempts; i++) {
     const isAvailable = await checkPort(port);
     if (isAvailable) {
-      console.log('✓ 服务已就绪！
-');
+      console.log('✓ Server is ready!\n');
       return true;
     }
     await new Promise(resolve => setTimeout(resolve, 1000));
     process.stdout.write('.');
   }
   
-  console.log('
-✗ 等待服务超时');
+  console.log('\n✗ Server startup timeout');
   return false;
 }
 
@@ -46,11 +44,10 @@ async function startElectron() {
   const isPortInUse = await checkPort(port);
   
   if (isPortInUse) {
-    console.log(`✓ Web 服务已在端口 ${port} 运行`);
-    console.log('✓ 直接启动 Electron...
-');
+    console.log(`✓ Web server is running on port ${port}`);
+    console.log('✓ Starting Electron directly...\n');
     
-    // 直接启动 Electron
+    // Start Electron directly
     const electron = spawn('npx', 
       ['electron', electronPath], {
       stdio: 'inherit',
@@ -62,10 +59,9 @@ async function startElectron() {
     });
     
   } else {
-    console.log(`✓ 启动 Web 服务和 Electron...
-`);
+    console.log(`✓ Starting Web server and Electron...\n`);
     
-    // 启动 Web 服务
+    // Start Web server
     const webServer = spawn(process.platform === 'win32' ? 'npm.cmd' : 'npm', 
       ['run', 'web'], {
       stdio: 'pipe',
@@ -80,18 +76,18 @@ async function startElectron() {
       process.stderr.write(data);
     });
     
-    // 等待服务启动
+    // Wait for server to start
     const serverReady = await waitForServer(port);
     
     if (!serverReady) {
-      console.error('Web 服务启动失败');
+      console.error('Web server startup failed');
       webServer.kill();
       process.exit(1);
       return;
     }
     
-    // 启动 Electron
-    console.log('启动 Electron 窗口...\n');
+    // Start Electron
+    console.log('Starting Electron window...\n');
     const electron = spawn('npx', 
       ['electron', electronPath], {
       stdio: 'inherit',
@@ -99,16 +95,14 @@ async function startElectron() {
     });
     
     electron.on('close', (code) => {
-      console.log('
-Electron 已关闭');
+      console.log('\nElectron closed');
       webServer.kill();
       process.exit(code || 0);
     });
     
-    // 处理 Ctrl+C
+    // Handle Ctrl+C
     process.on('SIGINT', () => {
-      console.log('
-正在关闭...');
+      console.log('\nShutting down...');
       electron.kill();
       webServer.kill();
       process.exit(0);
@@ -117,6 +111,6 @@ Electron 已关闭');
 }
 
 startElectron().catch(err => {
-  console.error('启动失败:', err);
+  console.error('Startup failed:', err);
   process.exit(1);
 });
