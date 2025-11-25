@@ -36,7 +36,7 @@ export default function App() {
         <View style={styles.header}>
           <Text style={styles.emoji}>🚀</Text>
           <Text style={styles.title}>MultiPlatformApp</Text>
-          <Text style={styles.subtitle}>跨平台应用模板</Text>
+          <Text style={styles.subtitle}>跨平台应用模板 1.12</Text>
         </View>
 
         {/* 平台信息卡片 */}

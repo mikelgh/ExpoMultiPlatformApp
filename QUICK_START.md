@@ -1,5 +1,9 @@
 # 🚀 快速启动指南
 
+[English](./docs/QUICK_START_EN.md) | [简体中文](./QUICK_START.md)
+
+---
+
 ## 方式一: 使用批处理脚本 (推荐)
 
 ### Web 平台

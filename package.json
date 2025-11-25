@@ -1,6 +1,30 @@
 {
-  "name": "expomultiplatformapp",
+  "name": "expo-multiplatform-app-template",
   "version": "1.0.0",
+  "description": "A truly cross-platform app template - One codebase, three platforms (Web, Android, Windows)",
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/expo-multiplatform-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/expo-multiplatform-app/issues"
+  },
+  "homepage": "https://github.com/yourusername/expo-multiplatform-app#readme",
+  "keywords": [
+    "expo",
+    "react-native",
+    "react-native-web",
+    "electron",
+    "cross-platform",
+    "multiplatform",
+    "android",
+    "web",
+    "windows",
+    "typescript",
+    "template"
+  ],
   "main": "index.ts",
   "electronMain": "electron.js",
   "scripts": {
