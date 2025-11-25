@@ -73,12 +73,23 @@
 
 ### Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/expo-multiplatform-app.git
-cd expo-multiplatform-app
+#### 📦 Clone Repository
 
-# Install dependencies
+**For users in China (Gitee - Faster)**:
+```bash
+git clone https://gitee.com/mikelgh/expo-multi-platform-app.git
+cd expo-multi-platform-app
+```
+
+**For international users (GitHub)**:
+```bash
+git clone https://github.com/mikelgh/ExpoMultiPlatformApp.git
+cd ExpoMultiPlatformApp
+```
+
+#### 📥 Install Dependencies
+
+```bash
 npm install
 ```
 

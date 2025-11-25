@@ -73,12 +73,23 @@
 
 ### 安装
 
-```bash
-# 克隆仓库
-git clone https://github.com/yourusername/expo-multiplatform-app.git
-cd expo-multiplatform-app
+#### 📦 克隆仓库
 
-# 安装依赖
+**国内用户推荐 (Gitee - 更快)**:
+```bash
+git clone https://gitee.com/mikelgh/expo-multi-platform-app.git
+cd expo-multi-platform-app
+```
+
+**国际用户 (GitHub)**:
+```bash
+git clone https://github.com/mikelgh/ExpoMultiPlatformApp.git
+cd ExpoMultiPlatformApp
+```
+
+#### 📥 安装依赖
+
+```bash
 npm install
 ```
 
