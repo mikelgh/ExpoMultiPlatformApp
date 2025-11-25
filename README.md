@@ -307,7 +307,7 @@ npm install --legacy-peer-deps
 
 **使用这个模板创建你的下一个跨平台应用吧！** 🎉
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Michael
 
 </div>
 

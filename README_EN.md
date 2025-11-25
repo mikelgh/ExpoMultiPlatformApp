@@ -308,6 +308,6 @@ If this project helps you, please give it a ⭐️!
 
 **Build your next cross-platform app with this template!** 🎉
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Michael
 
 </div>
