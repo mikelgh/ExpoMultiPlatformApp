@@ -32,6 +32,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
+    "windows": "start-electron.bat",
     "electron": "start-electron.bat",
     "electron:dev": "node_modules\\.bin\\electron.cmd electron.js",
     "electron:build": "electron-builder"
